@@ -1,0 +1,38 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1683734824	letters			\Default Work Unit\letters	
+
+Switch	ID	Name	Switch Group			Notes
+	84696421	z	letters			
+	84696422	y	letters			
+	84696424	w	letters			
+	84696425	v	letters			
+	84696426	u	letters			
+	84696427	t	letters			
+	84696428	s	letters			
+	84696429	r	letters			
+	84696431	p	letters			
+	84696432	o	letters			
+	84696433	n	letters			
+	84696434	m	letters			
+	84696435	l	letters			
+	84696436	k	letters			
+	84696437	j	letters			
+	84696438	i	letters			
+	84696439	h	letters			
+	84696440	g	letters			
+	84696441	f	letters			
+	84696442	e	letters			
+	84696443	d	letters			
+	84696445	b	letters			
+	84696446	a	letters			
+	1568083737	th	letters			
+	1584861548	sh	letters			
+	1651971903	oo	letters			
+	1819748203	ee	letters			
+	1853303388	ch	letters			
+	3048058352	random	letters			
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+

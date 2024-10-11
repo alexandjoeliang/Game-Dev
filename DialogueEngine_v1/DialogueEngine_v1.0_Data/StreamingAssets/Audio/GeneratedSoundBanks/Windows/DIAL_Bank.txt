@@ -1,0 +1,104 @@
+Event	ID	Name			Wwise Object Path	Notes
+	573839365	Speak			\Default Work Unit\Speak	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1683734824	letters			\Default Work Unit\letters	
+
+Switch	ID	Name	Switch Group			Notes
+	84696421	z	letters			
+	84696422	y	letters			
+	84696424	w	letters			
+	84696425	v	letters			
+	84696426	u	letters			
+	84696427	t	letters			
+	84696428	s	letters			
+	84696429	r	letters			
+	84696431	p	letters			
+	84696432	o	letters			
+	84696433	n	letters			
+	84696434	m	letters			
+	84696435	l	letters			
+	84696436	k	letters			
+	84696437	j	letters			
+	84696438	i	letters			
+	84696439	h	letters			
+	84696440	g	letters			
+	84696441	f	letters			
+	84696442	e	letters			
+	84696443	d	letters			
+	84696445	b	letters			
+	84696446	a	letters			
+	1568083737	th	letters			
+	1584861548	sh	letters			
+	1651971903	oo	letters			
+	1819748203	ee	letters			
+	1853303388	ch	letters			
+	3048058352	random	letters			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1776943274	Gender			\Default Work Unit\Gender	
+	1908158473	Pitch			\Default Work Unit\Pitch	
+	2415836739	Volume			\Default Work Unit\Volume	
+	3209013337	Tone			\Default Work Unit\Tone	
+
+Effect plug-ins	ID	Name	Type				Notes
+	757218039	Default (Custom)	Wwise Tremolo			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	24373997	F_j	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_j_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_j		10772
+	28331991	F_u	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_u_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_u		20144
+	29654491	F_p	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_p_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_p		10772
+	36909175	F_b	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_b_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_b		16668
+	41419352	e	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\e_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\e		11776
+	55374867	F_y	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_y_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_y		19616
+	88404987	d	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\d_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\d		6764
+	94389297	th	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\th_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\th		20352
+	103190102	ch	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\ch_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\ch		15132
+	104330893	F_oo	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_oo_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_oo		19348
+	112369246	F_n	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_n_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_n		16668
+	113684303	ee	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\ee_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\ee		18896
+	165154304	F_th	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_th_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_th		20984
+	182480148	F_d	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_d_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_d		13720
+	192628453	m	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\m_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\m		19476
+	195677012	k	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\k_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\k		11360
+	197143469	F_i	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_i_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_i		11848
+	234511933	F_ch	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_ch_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_ch		13988
+	241034050	F_a	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_a_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_a		15596
+	259631625	F_s	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_s_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_s		14252
+	261918889	F_ee	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_ee_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_ee		18812
+	269331789	j	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\j_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\j		9268
+	285229447	o	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\o_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\o		19024
+	290760199	oo	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\oo_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\oo		19028
+	304040192	w	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\w_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\w		15752
+	340574936	F_z	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_z_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_z		16136
+	360644775	z	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\z_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\z		15104
+	370227837	F_k	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_k_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_k		12788
+	371560281	r	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\r_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\r		24872
+	377667713	p	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\p_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\p		11176
+	389381024	t	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\t_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\t		5952
+	397448673	F_v	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_v_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_v		20984
+	399720833	f	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\f		15548
+	414934350	a	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\a_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\a		15964
+	445773707	s	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\s_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\s		14444
+	448366934	F_l	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_l_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_l		16236
+	460780792	F_g	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_g_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_g		9176
+	485608056	F_o	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_o_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_o		18812
+	492062812	v	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\v_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\v		16412
+	518035079	u	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\u_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\u		20336
+	521412785	y	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\y_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\y		19672
+	596041790	l	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\l_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\l		17464
+	597306159	h	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\h_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\h		11948
+	635107622	g	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\g_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\g		8428
+	636370227	F_w	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_w_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_w		15600
+	653596658	F_h	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_h_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_h		11848
+	680459265	F_sh	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_sh_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_sh		19616
+	709356297	F_e	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_e_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\randomLetter\F_e		13460
+	772581729	i	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\i_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\randomLetter\i		11784
+	791919451	F_r	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_r_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_r		19348
+	805554076	b	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\b_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\b		16804
+	824579341	n	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\n_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\n		15548
+	828835655	sh	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\sh_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_male\sh		20984
+	839433520	F_f	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_f_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_f		16804
+	842869437	F_m	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_m_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_m		19144
+	844282081	F_t	E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\sfx\f_t_ddc98ef4.wem		\Actor-Mixer Hierarchy\Phonetics\GenderBlender\DIAL_Switch_female\F_t		6764
+

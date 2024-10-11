@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginInfo Project="zBogucki_DialogueSystem" Platform="Windows" Key="433E6B35-4" Motion="false">
+	<Plugins>
+		<Plugin Name="Wwise Tremolo" ID="8585219" />
+	</Plugins>
+</PluginInfo>

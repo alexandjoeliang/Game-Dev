@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" SchemaVersion="9">
+	<RootPaths>
+		<ProjectRoot>E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\</ProjectRoot>
+		<SourceFilesRoot>E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>E:\_Fall2014\Studio I\_Workshop Area\DialogueEngine_v0.1\Wwise\zBogucki_DialogueSystem\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents />
+	<StreamedFiles />
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<IncludedEvents />
+			<IncludedDialogueEvents />
+			<ReferencedStreamedFiles />
+			<IncludedFullFiles />
+			<IncludedPrefetchFiles />
+			<ExternalSources />
+		</SoundBank>
+		<SoundBank Id="3503851672" Language="SFX">
+			<ShortName>DIAL_Bank</ShortName>
+			<Path>DIAL_Bank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="573839365" Name="Speak" />
+			</IncludedEvents>
+			<IncludedDialogueEvents />
+			<ReferencedStreamedFiles />
+			<IncludedFullFiles>
+				<File Id="414934350" Language="SFX">
+					<ShortName>a.wav</ShortName>
+					<Path>sfx\a_ddc98ef4.wem</Path>
+				</File>
+				<File Id="805554076" Language="SFX">
+					<ShortName>b.wav</ShortName>
+					<Path>sfx\b_ddc98ef4.wem</Path>
+				</File>
+				<File Id="103190102" Language="SFX">
+					<ShortName>ch.wav</ShortName>
+					<Path>sfx\ch_ddc98ef4.wem</Path>
+				</File>
+				<File Id="88404987" Language="SFX">
+					<ShortName>d.wav</ShortName>
+					<Path>sfx\d_ddc98ef4.wem</Path>
+				</File>
+				<File Id="41419352" Language="SFX">
+					<ShortName>e.wav</ShortName>
+					<Path>sfx\e_ddc98ef4.wem</Path>
+				</File>
+				<File Id="113684303" Language="SFX">
+					<ShortName>ee.wav</ShortName>
+					<Path>sfx\ee_ddc98ef4.wem</Path>
+				</File>
+				<File Id="241034050" Language="SFX">
+					<ShortName>F_a.wav</ShortName>
+					<Path>sfx\f_a_ddc98ef4.wem</Path>
+				</File>
+				<File Id="36909175" Language="SFX">
+					<ShortName>F_b.wav</ShortName>
+					<Path>sfx\f_b_ddc98ef4.wem</Path>
+				</File>
+				<File Id="234511933" Language="SFX">
+					<ShortName>F_ch.wav</ShortName>
+					<Path>sfx\f_ch_ddc98ef4.wem</Path>
+				</File>
+				<File Id="182480148" Language="SFX">
+					<ShortName>F_d.wav</ShortName>
+					<Path>sfx\f_d_ddc98ef4.wem</Path>
+				</File>
+				<File Id="399720833" Language="SFX">
+					<ShortName>f.wav</ShortName>
+					<Path>sfx\f_ddc98ef4.wem</Path>
+				</File>
+				<File Id="709356297" Language="SFX">
+					<ShortName>F_e.wav</ShortName>
+					<Path>sfx\f_e_ddc98ef4.wem</Path>
+				</File>
+				<File Id="261918889" Language="SFX">
+					<ShortName>F_ee.wav</ShortName>
+					<Path>sfx\f_ee_ddc98ef4.wem</Path>
+				</File>
+				<File Id="839433520" Language="SFX">
+					<ShortName>F_f.wav</ShortName>
+					<Path>sfx\f_f_ddc98ef4.wem</Path>
+				</File>
+				<File Id="460780792" Language="SFX">
+					<ShortName>F_g.wav</ShortName>
+					<Path>sfx\f_g_ddc98ef4.wem</Path>
+				</File>
+				<File Id="653596658" Language="SFX">
+					<ShortName>F_h.wav</ShortName>
+					<Path>sfx\f_h_ddc98ef4.wem</Path>
+				</File>
+				<File Id="197143469" Language="SFX">
+					<ShortName>F_i.wav</ShortName>
+					<Path>sfx\f_i_ddc98ef4.wem</Path>
+				</File>
+				<File Id="24373997" Language="SFX">
+					<ShortName>F_j.wav</ShortName>
+					<Path>sfx\f_j_ddc98ef4.wem</Path>
+				</File>
+				<File Id="370227837" Language="SFX">
+					<ShortName>F_k.wav</ShortName>
+					<Path>sfx\f_k_ddc98ef4.wem</Path>
+				</File>
+				<File Id="448366934" Language="SFX">
+					<ShortName>F_l.wav</ShortName>
+					<Path>sfx\f_l_ddc98ef4.wem</Path>
+				</File>
+				<File Id="842869437" Language="SFX">
+					<ShortName>F_m.wav</ShortName>
+					<Path>sfx\f_m_ddc98ef4.wem</Path>
+				</File>
+				<File Id="112369246" Language="SFX">
+					<ShortName>F_n.wav</ShortName>
+					<Path>sfx\f_n_ddc98ef4.wem</Path>
+				</File>
+				<File Id="485608056" Language="SFX">
+					<ShortName>F_o.wav</ShortName>
+					<Path>sfx\f_o_ddc98ef4.wem</Path>
+				</File>
+				<File Id="104330893" Language="SFX">
+					<ShortName>F_oo.wav</ShortName>
+					<Path>sfx\f_oo_ddc98ef4.wem</Path>
+				</File>
+				<File Id="29654491" Language="SFX">
+					<ShortName>F_p.wav</ShortName>
+					<Path>sfx\f_p_ddc98ef4.wem</Path>
+				</File>
+				<File Id="791919451" Language="SFX">
+					<ShortName>F_r.wav</ShortName>
+					<Path>sfx\f_r_ddc98ef4.wem</Path>
+				</File>
+				<File Id="259631625" Language="SFX">
+					<ShortName>F_s.wav</ShortName>
+					<Path>sfx\f_s_ddc98ef4.wem</Path>
+				</File>
+				<File Id="680459265" Language="SFX">
+					<ShortName>F_sh.wav</ShortName>
+					<Path>sfx\f_sh_ddc98ef4.wem</Path>
+				</File>
+				<File Id="844282081" Language="SFX">
+					<ShortName>F_t.wav</ShortName>
+					<Path>sfx\f_t_ddc98ef4.wem</Path>
+				</File>
+				<File Id="165154304" Language="SFX">
+					<ShortName>F_th.wav</ShortName>
+					<Path>sfx\f_th_ddc98ef4.wem</Path>
+				</File>
+				<File Id="28331991" Language="SFX">
+					<ShortName>F_u.wav</ShortName>
+					<Path>sfx\f_u_ddc98ef4.wem</Path>
+				</File>
+				<File Id="397448673" Language="SFX">
+					<ShortName>F_v.wav</ShortName>
+					<Path>sfx\f_v_ddc98ef4.wem</Path>
+				</File>
+				<File Id="636370227" Language="SFX">
+					<ShortName>F_w.wav</ShortName>
+					<Path>sfx\f_w_ddc98ef4.wem</Path>
+				</File>
+				<File Id="55374867" Language="SFX">
+					<ShortName>F_y.wav</ShortName>
+					<Path>sfx\f_y_ddc98ef4.wem</Path>
+				</File>
+				<File Id="340574936" Language="SFX">
+					<ShortName>F_z.wav</ShortName>
+					<Path>sfx\f_z_ddc98ef4.wem</Path>
+				</File>
+				<File Id="635107622" Language="SFX">
+					<ShortName>g.wav</ShortName>
+					<Path>sfx\g_ddc98ef4.wem</Path>
+				</File>
+				<File Id="597306159" Language="SFX">
+					<ShortName>h.wav</ShortName>
+					<Path>sfx\h_ddc98ef4.wem</Path>
+				</File>
+				<File Id="772581729" Language="SFX">
+					<ShortName>i.wav</ShortName>
+					<Path>sfx\i_ddc98ef4.wem</Path>
+				</File>
+				<File Id="269331789" Language="SFX">
+					<ShortName>j.wav</ShortName>
+					<Path>sfx\j_ddc98ef4.wem</Path>
+				</File>
+				<File Id="195677012" Language="SFX">
+					<ShortName>k.wav</ShortName>
+					<Path>sfx\k_ddc98ef4.wem</Path>
+				</File>
+				<File Id="596041790" Language="SFX">
+					<ShortName>l.wav</ShortName>
+					<Path>sfx\l_ddc98ef4.wem</Path>
+				</File>
+				<File Id="192628453" Language="SFX">
+					<ShortName>m.wav</ShortName>
+					<Path>sfx\m_ddc98ef4.wem</Path>
+				</File>
+				<File Id="824579341" Language="SFX">
+					<ShortName>n.wav</ShortName>
+					<Path>sfx\n_ddc98ef4.wem</Path>
+				</File>
+				<File Id="285229447" Language="SFX">
+					<ShortName>o.wav</ShortName>
+					<Path>sfx\o_ddc98ef4.wem</Path>
+				</File>
+				<File Id="290760199" Language="SFX">
+					<ShortName>oo.wav</ShortName>
+					<Path>sfx\oo_ddc98ef4.wem</Path>
+				</File>
+				<File Id="377667713" Language="SFX">
+					<ShortName>p.wav</ShortName>
+					<Path>sfx\p_ddc98ef4.wem</Path>
+				</File>
+				<File Id="371560281" Language="SFX">
+					<ShortName>r.wav</ShortName>
+					<Path>sfx\r_ddc98ef4.wem</Path>
+				</File>
+				<File Id="445773707" Language="SFX">
+					<ShortName>s.wav</ShortName>
+					<Path>sfx\s_ddc98ef4.wem</Path>
+				</File>
+				<File Id="828835655" Language="SFX">
+					<ShortName>sh.wav</ShortName>
+					<Path>sfx\sh_ddc98ef4.wem</Path>
+				</File>
+				<File Id="389381024" Language="SFX">
+					<ShortName>t.wav</ShortName>
+					<Path>sfx\t_ddc98ef4.wem</Path>
+				</File>
+				<File Id="94389297" Language="SFX">
+					<ShortName>th.wav</ShortName>
+					<Path>sfx\th_ddc98ef4.wem</Path>
+				</File>
+				<File Id="518035079" Language="SFX">
+					<ShortName>u.wav</ShortName>
+					<Path>sfx\u_ddc98ef4.wem</Path>
+				</File>
+				<File Id="492062812" Language="SFX">
+					<ShortName>v.wav</ShortName>
+					<Path>sfx\v_ddc98ef4.wem</Path>
+				</File>
+				<File Id="304040192" Language="SFX">
+					<ShortName>w.wav</ShortName>
+					<Path>sfx\w_ddc98ef4.wem</Path>
+				</File>
+				<File Id="521412785" Language="SFX">
+					<ShortName>y.wav</ShortName>
+					<Path>sfx\y_ddc98ef4.wem</Path>
+				</File>
+				<File Id="360644775" Language="SFX">
+					<ShortName>z.wav</ShortName>
+					<Path>sfx\z_ddc98ef4.wem</Path>
+				</File>
+			</IncludedFullFiles>
+			<IncludedPrefetchFiles />
+			<ExternalSources />
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
