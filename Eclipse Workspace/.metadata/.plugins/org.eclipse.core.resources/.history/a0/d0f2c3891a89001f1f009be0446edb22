@@ -1,0 +1,83 @@
+package utilz;
+
+import main.gameClass;
+import utilz.constants.Directions;
+
+public class helpMethods {
+	
+	public static boolean CanMoveHere(float x, float y, float width, float height, int[][] lvlData, int dir) {
+		
+		if(dir == Directions.LEFT){
+			for(int yStep = 0; yStep < (int) (height); yStep++) {
+				if(IsSolid(x, y + yStep, lvlData)) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		if(dir == Directions.UP){
+			for(int xStep = 0; xStep < (int) (width); xStep++) {
+				if(IsSolid(x + xStep, y, lvlData)) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		if(dir == Directions.RIGHT){
+			for(int yStep = (int) (height); yStep > 0; yStep--) {
+				if(IsSolid(x, y - yStep, lvlData)) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		if(dir == Directions.DOWN){
+			for(int xStep = (int) (width); xStep > 0; xStep--) {
+				if(IsSolid(x - xStep, y, lvlData)) {
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		
+		
+		return false;
+	}
+	
+		
+	private static boolean IsSolid(float x, float y, int[][] lvlData) {
+		
+		if(x < 0 || x >= gameClass.GAME_WIDTH) {
+			
+			return true;
+			
+		}
+		if(y < 0 || y >= gameClass.GAME_HEIGHT) {
+			
+			return true;
+			
+		}
+		float xIndex = x / gameClass.TILES_SIZE;
+		float yIndex = y / gameClass.TILES_SIZE;
+		
+		int value = lvlData[(int) yIndex][(int) xIndex];
+		
+		if(value >= 48 || value < 0 || value != 11) {
+			return true;
+		}
+			else {
+				return false;	
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+}

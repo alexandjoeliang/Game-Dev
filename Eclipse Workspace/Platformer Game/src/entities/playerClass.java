@@ -9,7 +9,10 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+import main.gameClass;
+import utilz.constants.Directions;
 import utilz.loadSave;
+import static utilz.helpMethods.CanMoveHere;
 
 public class playerClass extends entity {
 	private BufferedImage[][] animations;
@@ -18,10 +21,15 @@ public class playerClass extends entity {
 	private boolean moving = false/*, attacking = false*/;
 	private boolean left, up, right, down;
 	private float playerSpeed = 1.0f;
+	private int[][] lvlData;
+	private float xDrawOffset = 23 * gameClass.PLAYER_TO_TILE_RATIO * gameClass.SCALE;
+	private float yDrawOffset = 18 * gameClass.PLAYER_TO_TILE_RATIO * gameClass.SCALE;
+	private int dir;
 
-	public playerClass(float x, float y) {
-		super(x, y);
+	public playerClass(float x, float y, int width, int height) {
+		super(x, y, width, height);
 		loadAnimations();
+		initHitbox(x, y, 16 * gameClass.PLAYER_TO_TILE_RATIO * gameClass.SCALE, 39 * gameClass.PLAYER_TO_TILE_RATIO * gameClass.SCALE);
 	}
 
 	public void update() {
@@ -31,7 +39,8 @@ public class playerClass extends entity {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(animations[playerAction][aniIndex], (int) x, (int) y, 256, 256, null);
+		g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset), (int) (hitbox.y - yDrawOffset), width, height, null);
+		drawHitbox(g);
 	}
 
 	private void updateAnimationTick() {
@@ -70,22 +79,41 @@ public class playerClass extends entity {
 
 	private void updatePos() {
 		moving = false;
-
+		
+		if(!left && !right && !up && !down) {
+			return;
+		}
+		
+		float xSpeed = 0, ySpeed = 0;
+		
 		if (left && !right) {
-			x -= playerSpeed;
-			moving = true;
+			xSpeed = -playerSpeed;
+			dir = Directions.LEFT;
 		} else if (right && !left) {
-			x += playerSpeed;
-			moving = true;
+			xSpeed = playerSpeed;
+			dir = Directions.RIGHT;
 		}
 
-		if (up && !down) {
-			y -= playerSpeed;
-			moving = true;
-		} else if (down && !up) {
-			y += playerSpeed;
+		if(CanMoveHere(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, lvlData, dir)) {
+			hitbox.x += xSpeed;
 			moving = true;
 		}
+		
+		if (up && !down) {
+			ySpeed = -playerSpeed;
+			dir = Directions.UP;
+			
+		} else if (down && !up) {
+			ySpeed = playerSpeed;
+			dir = Directions.DOWN;
+		}
+
+		if(CanMoveHere(hitbox.x, hitbox.y + ySpeed, hitbox.width, hitbox.height, lvlData, dir)) {
+			hitbox.y += ySpeed;
+			moving = true;
+		}
+		
+
 	}
 
 	private void loadAnimations() {
@@ -94,11 +122,17 @@ public class playerClass extends entity {
 			animations = new BufferedImage[2][12];
 			for (int j = 0; j < animations.length; j++)
 				for (int i = 0; i < animations[j].length; i++)
-					animations[j][i] = img.getSubimage(i * 256, j * 256, 256, 256);
+					animations[j][i] = img.getSubimage(i * 64, j * 64, 64, 64);
 
 
 	}
 
+	public void loadLvlData(int[][] lvlData) {
+		this.lvlData = lvlData;
+		
+	}
+	
+	
 	public void resetDirBooleans() {
 		left = false;
 		right = false;

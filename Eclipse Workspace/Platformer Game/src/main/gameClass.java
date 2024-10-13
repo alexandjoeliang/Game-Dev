@@ -17,9 +17,11 @@ public class gameClass implements Runnable {
 	private levelManager levelHandler;
 	
 	public final static int TILES_DEFAULT_SIZE = 64;
-	public final static float SCALE = 1.0f;
-	public final static int TILES_IN_WIDTH = 26;
-	public final static int TILES_IN_HEIGHT = 14;
+	public final static int PLAYER_DEFAULT_SIZE = 256;
+	public final static int PLAYER_TO_TILE_RATIO = PLAYER_DEFAULT_SIZE / TILES_DEFAULT_SIZE;
+	public final static float SCALE = 1f;
+	public final static int TILES_IN_WIDTH = 24;
+	public final static int TILES_IN_HEIGHT = 13;
 	public final static int TILES_SIZE = (int) (TILES_DEFAULT_SIZE * SCALE);
 	public final static int GAME_WIDTH = TILES_SIZE * TILES_IN_WIDTH;
 	public final static int GAME_HEIGHT = TILES_SIZE * TILES_IN_HEIGHT;
@@ -39,8 +41,10 @@ public class gameClass implements Runnable {
 	}
 
 	private void initClasses() {
-		player = new playerClass(200, 200);
+		player = new playerClass(200, 200, (int) (PLAYER_DEFAULT_SIZE * SCALE), (int) (PLAYER_DEFAULT_SIZE * SCALE));
 		levelHandler = new levelManager(this);
+		player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
+
 	}
 
 	//creates separate thread for game to run on - smooth FPS
