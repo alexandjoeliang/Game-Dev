@@ -1,0 +1,21 @@
+package levels;
+
+import java.awt.image.BufferedImage;
+
+import main.gameClass;
+import utilz.loadSave;
+
+public class levelManager {
+
+	private gameClass game;
+	private BufferedImage levelSprite;
+	
+	public levelManager(gameClass game) {
+		
+		this.game = game;
+		levelSprite = loadSave.GetSpriteAtlas(loadSave.LEVEL_ATLAS);
+		
+		
+	}
+	
+}
