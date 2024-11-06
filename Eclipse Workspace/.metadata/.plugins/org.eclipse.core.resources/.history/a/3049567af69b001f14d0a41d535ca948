@@ -57,15 +57,15 @@ public class gameClass implements Runnable {
 	}
 	
 	public void update() {
-		
+		player.update();
+		levelHandler.update();
 		
 		switch(gamestate.state) {
 		case MENU:
 			
 			break;
 		case PLAYING:
-			player.update();
-			levelHandler.update();
+			
 			break;
 		default:
 			break;
@@ -75,20 +75,8 @@ public class gameClass implements Runnable {
 	}
 	
 	public void render(Graphics g) {
-		
-		
-		switch(gamestate.state) {
-		case MENU:
-			
-			break;
-		case PLAYING:
-			levelHandler.draw(g);
-			player.render(g);
-			break;
-		default:
-			break;
-		
-		}
+		levelHandler.draw(g);
+		player.render(g);
 				
 	}
 	

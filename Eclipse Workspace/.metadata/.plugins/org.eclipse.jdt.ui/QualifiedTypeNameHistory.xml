@@ -26,4 +26,5 @@
     <fullyQualifiedTypeName name="utilz.constants.Directions"/>
     <fullyQualifiedTypeName name="java.awt.geom.Rectangle2D"/>
     <fullyQualifiedTypeName name="utilz.helpMethods"/>
+    <fullyQualifiedTypeName name="gamestates.gamestate"/>
 </qualifiedTypeNameHistroy>
