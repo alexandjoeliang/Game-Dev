@@ -1,0 +1,9 @@
+package ui;
+
+public class menubuttons {
+
+	public menubuttons(int xPos, int yPos) {
+		
+		
+	}
+}

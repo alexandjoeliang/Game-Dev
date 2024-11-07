@@ -1,0 +1,10 @@
+package gamestates;
+
+public interface statemethods {
+	
+	public void update();
+	
+	
+	
+	
+}

@@ -1,0 +1,12 @@
+package gamestates;
+
+public class state {
+
+	public state() {
+		
+		
+		
+	}
+	
+	
+}

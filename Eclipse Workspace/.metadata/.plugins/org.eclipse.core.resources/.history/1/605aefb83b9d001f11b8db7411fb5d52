@@ -1,0 +1,37 @@
+package gamestates;
+
+import entities.playerClass;
+import levels.levelManager;
+
+public class playing extends state {
+	
+	public playing(gameClass game) {
+		super(game);
+		
+	}
+	
+	private playerClass player;
+	private levelManager levelHandler;
+	
+	
+	private void initClasses() {
+		player = new playerClass(200, 200, (int) (PLAYER_DEFAULT_SIZE * SCALE), (int) (PLAYER_DEFAULT_SIZE * SCALE));
+		levelHandler = new levelManager(this);
+		player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
+
+	}
+	
+	//ensures player does not keep moving if clicked off application
+	public void windowFocusLost() {
+		player.resetDirBooleans();
+		
+		
+	}
+	
+	public playerClass getPlayer() {
+		return player;
+		
+	}
+	
+	
+}

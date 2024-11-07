@@ -2,9 +2,10 @@ package main;
 
 import java.awt.Graphics;
 
-import entities.playerClass;
 import gamestates.gamestate;
-import levels.levelManager;
+import gamestates.menu;
+import gamestates.playing;
+
 
 public class gameClass implements Runnable {
 
@@ -14,8 +15,9 @@ public class gameClass implements Runnable {
 	private Thread gameThread;
 	private final int FPS_SET = 60;
 	private final int UPS_SET = 200;
-	private playerClass player;
-	private levelManager levelHandler;
+
+	private playing playingobj;
+	private menu menuobj;
 	
 	public final static int TILES_DEFAULT_SIZE = 64;
 	public final static int PLAYER_DEFAULT_SIZE = 192;
@@ -42,10 +44,8 @@ public class gameClass implements Runnable {
 	}
 
 	private void initClasses() {
-		player = new playerClass(200, 200, (int) (PLAYER_DEFAULT_SIZE * SCALE), (int) (PLAYER_DEFAULT_SIZE * SCALE));
-		levelHandler = new levelManager(this);
-		player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
-
+		menuobj = new menu(this);
+		playingobj = new playing(this);
 	}
 
 	//creates separate thread for game to run on - smooth FPS
@@ -61,11 +61,10 @@ public class gameClass implements Runnable {
 		
 		switch(gamestate.state) {
 		case MENU:
-			
+			menuobj.update();
 			break;
 		case PLAYING:
-			player.update();
-			levelHandler.update();
+			playingobj.update();
 			break;
 		default:
 			break;
@@ -79,11 +78,10 @@ public class gameClass implements Runnable {
 		
 		switch(gamestate.state) {
 		case MENU:
-			
+			menuobj.draw(g);
 			break;
 		case PLAYING:
-			levelHandler.draw(g);
-			player.render(g);
+			playingobj.draw(g);
 			break;
 		default:
 			break;
@@ -138,16 +136,19 @@ public class gameClass implements Runnable {
 		}
 		
 	}
-	//ensures player does not keep moving if clicked off application
+
 	public void windowFocusLost() {
-		player.resetDirBooleans();
-		
+		if(gamestate.state == gamestate.PLAYING) {
+			playingobj.getPlayer().resetDirBooleans();
+		}
 		
 	}
-	
-	public playerClass getPlayer() {
-		return player;
-		
+
+	public menu getMenu() {
+		return menuobj;
+	}
+	public playing getPlaying() {
+		return playingobj;
 	}
 	
 }

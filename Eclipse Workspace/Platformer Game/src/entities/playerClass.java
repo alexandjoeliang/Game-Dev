@@ -217,6 +217,7 @@ public class playerClass extends entity {
 		right = false;
 		up = false;
 		down = false;
+		jump = false;
 	}
 
 	/*public void setAttacking(boolean attacking) {
