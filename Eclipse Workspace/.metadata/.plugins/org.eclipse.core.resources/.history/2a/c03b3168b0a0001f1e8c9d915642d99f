@@ -63,7 +63,7 @@ public class menu extends state implements statemethods {
 			if(isIn(e, mb)) {
 				if(mb.isMousePressed())
 					mb.applyGamestate();
-				break;
+					break;
 			}
 		}
 		resetButtons();

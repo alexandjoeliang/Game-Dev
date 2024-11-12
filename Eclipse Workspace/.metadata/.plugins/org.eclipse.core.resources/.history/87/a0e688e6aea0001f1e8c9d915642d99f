@@ -21,8 +21,8 @@ public class menu extends state implements statemethods {
 
 	private void loadButtons() {
 		buttons[0] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (150 * gameClass.SCALE), 0, gamestate.PLAYING);
-		buttons[1] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (220 * gameClass.SCALE), 1, gamestate.OPTIONS);
-		buttons[2] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (290 * gameClass.SCALE), 2, gamestate.QUIT);
+		buttons[1] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (220 * gameClass.SCALE), 0, gamestate.OPTIONS);
+		buttons[2] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (290 * gameClass.SCALE), 0, gamestate.QUIT);
  		
 	}
 
@@ -63,7 +63,7 @@ public class menu extends state implements statemethods {
 			if(isIn(e, mb)) {
 				if(mb.isMousePressed())
 					mb.applyGamestate();
-				break;
+					break;
 			}
 		}
 		resetButtons();

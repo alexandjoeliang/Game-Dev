@@ -82,7 +82,7 @@ public class menubuttons {
 	}
 	
 	public void resetBools() {
-		mouseOver = false;
+		mouseOver = true;
 		mousePressed = false;
 	}
 	
