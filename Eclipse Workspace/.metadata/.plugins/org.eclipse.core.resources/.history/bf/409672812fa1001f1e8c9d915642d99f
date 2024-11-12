@@ -46,7 +46,6 @@ public class menu extends state implements statemethods {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(backgroundImg, menuX, menuY, menuWidth, menuHeight, null);
 		for(menubuttons mb : buttons) {
 			mb.draw(g);
 		}
