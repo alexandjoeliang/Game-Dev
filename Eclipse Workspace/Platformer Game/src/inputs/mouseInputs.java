@@ -8,14 +8,16 @@ import java.awt.event.MouseWheelListener;
 
 import gamestates.gamestate;
 import main.gamePanel;
+import main.gameWindow;
 
 public class mouseInputs implements MouseListener, MouseMotionListener, MouseWheelListener {
 
 	private gamePanel panel;
-	
+	private gameWindow window;
 	//allows use of methods defined in panel
-	public mouseInputs(gamePanel panel) {
+	public mouseInputs(gamePanel panel, gameWindow window) {
 		this.panel = panel;
+		this.window = window;
 	}
 	
 	@Override
@@ -59,6 +61,9 @@ public class mouseInputs implements MouseListener, MouseMotionListener, MouseWhe
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		if (e.getButton() == MouseEvent.BUTTON1)
+			window.changeCursor("pressed");
+		
 		switch(gamestate.state) {
 		case MENU:
 			panel.getGame().getMenu().mousePressed(e);
@@ -76,6 +81,9 @@ public class mouseInputs implements MouseListener, MouseMotionListener, MouseWhe
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		if (e.getButton() == MouseEvent.BUTTON1)
+			window.changeCursor("released");
+		
 		switch(gamestate.state) {
 		case MENU:
 			panel.getGame().getMenu().mouseReleased(e);

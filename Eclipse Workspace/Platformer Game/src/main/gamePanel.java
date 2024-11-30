@@ -15,13 +15,19 @@ public class gamePanel extends JPanel{
 	//panel variables
 	private mouseInputs mInputs;
 	private gameClass game;
+	private gameWindow window;
 	
 	//panel constructor
 	public gamePanel(gameClass game) {
-		mInputs = new mouseInputs(this);
+		
 		this.game = game;
 		
 		setPanelSize();
+		
+		window = new gameWindow(this);
+		mInputs = new mouseInputs(this, window);
+		
+		
 		addKeyListener(new keyboardInputs(this));
 		addMouseListener(mInputs);
 		addMouseMotionListener(mInputs);

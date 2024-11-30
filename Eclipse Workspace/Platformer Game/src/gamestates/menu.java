@@ -1,6 +1,6 @@
 package gamestates;
 
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -27,7 +27,7 @@ public class menu extends state implements statemethods {
 		menuWidth = (int) (backgroundImg.getWidth() * gameClass.SCALE);
 		menuHeight = (int) (backgroundImg.getHeight() * gameClass.SCALE);
 		menuX = gameClass.GAME_WIDTH / 2 - menuWidth / 2;
-		menuY = (int) (45 * game.SCALE);
+		menuY = (int) (45 * gameClass.SCALE);
 	}
 
 	private void loadButtons() {

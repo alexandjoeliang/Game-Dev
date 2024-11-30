@@ -10,7 +10,6 @@ import gamestates.playing;
 public class gameClass implements Runnable {
 
 	//game variables
-	private gameWindow window;
 	private gamePanel panel;
 	private Thread gameThread;
 	private final int FPS_SET = 60;
@@ -22,7 +21,7 @@ public class gameClass implements Runnable {
 	public final static int TILES_DEFAULT_SIZE = 64;
 	public final static int PLAYER_DEFAULT_SIZE = 192;
 	public final static float PLAYER_TO_TILE_RATIO = PLAYER_DEFAULT_SIZE / TILES_DEFAULT_SIZE;
-	public final static float SCALE = 0.5f;
+	public final static float SCALE = 1f;
 	public final static int TILES_IN_WIDTH = 24;
 	public final static int TILES_IN_HEIGHT = 13;
 	public final static int TILES_SIZE = (int) (TILES_DEFAULT_SIZE * SCALE);
@@ -37,7 +36,6 @@ public class gameClass implements Runnable {
 		panel = new gamePanel(this);
 		panel.setFocusable(true);
 		panel.requestFocus();
-		window = new gameWindow(panel);
 		
 		
 		startGameLoop();
@@ -155,5 +153,6 @@ public class gameClass implements Runnable {
 	public playing getPlaying() {
 		return playingobj;
 	}
+
 	
 }

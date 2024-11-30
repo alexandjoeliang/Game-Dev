@@ -11,6 +11,10 @@ import main.gameClass;
 public class playing extends state implements statemethods {
 	private playerClass player;
 	private levelManager levelHandler;
+	private boolean paused;
+	
+	
+	
 	public playing(gameClass game) {
 		super(game);
 		initClasses();
