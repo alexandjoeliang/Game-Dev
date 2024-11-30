@@ -1,0 +1,40 @@
+package ui;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+import utilz.loadSave;
+import static utilz.constants.UI.URMButtons.*;
+
+public class urmButton extends pauseButton {
+
+	private BufferedImage[] imgs;
+	private int rowIndex;
+	
+	public urmButton(int x, int y, int width, int height, int rowIndex) {
+		super(x, y, width, height);
+		this.rowIndex = rowIndex;
+		loadImgs();
+	
+	}
+	
+	private void loadImgs() {
+		BufferedImage temp = loadSave.GetSpriteAtlas(loadSave.URM_BUTTONS);
+		imgs = new BufferedImage[3];
+		for(int i = 0; i < imgs.length; i++)
+			imgs[i] = temp.getSubimage(i*URM_DEFAULT_SIZE, rowIndex * URM_DEFAULT_SIZE, URM_DEFAULT_SIZE, URM_DEFAULT_SIZE);
+		
+		
+	}
+
+	public void update() {
+		
+		
+	}
+
+	
+	public void draw(Graphics g) {
+		
+	}
+	
+}

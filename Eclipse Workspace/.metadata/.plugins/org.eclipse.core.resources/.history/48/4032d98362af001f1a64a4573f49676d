@@ -1,0 +1,26 @@
+package ui;
+
+import java.awt.image.BufferedImage;
+
+import utilz.loadSave;
+
+public class soundButtons extends pauseButtons {
+
+	private BufferedImage[][] soundControlImgs;
+	
+	public soundButtons(int x, int y, int width, int height) {
+		super(x, y, width, height);
+		
+		loadSoundControlImgs();
+	}
+
+	private void loadSoundControlImgs() {
+		BufferedImage temp = loadSave.GetSpriteAtlas(loadSave.SOUND_BUTTONS);
+		soundControlImgs = new BufferedImage[2][3];
+		for(int j = 0; j < soundControlImgs.length; j++)
+			for(int i = 0; i < soundControlImgs[j].length; i++)
+				
+	}
+
+
+}

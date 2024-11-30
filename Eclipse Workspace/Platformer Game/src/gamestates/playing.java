@@ -7,11 +7,14 @@ import java.awt.event.MouseEvent;
 import entities.playerClass;
 import levels.levelManager;
 import main.gameClass;
+import ui.pauseOverlay;
 
 public class playing extends state implements statemethods {
+	
 	private playerClass player;
 	private levelManager levelHandler;
-	private boolean paused;
+	private pauseOverlay pauseMenu;
+	private boolean paused = true;
 	
 	
 	
@@ -24,21 +27,26 @@ public class playing extends state implements statemethods {
 		player = new playerClass(200 * gameClass.SCALE, 200 * gameClass.SCALE, (int) (gameClass.PLAYER_DEFAULT_SIZE * gameClass.SCALE), (int) (gameClass.PLAYER_DEFAULT_SIZE * gameClass.SCALE));
 		levelHandler = new levelManager(game);
 		player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
-
+		pauseMenu = new pauseOverlay(this);
+		
 	}
 
 	@Override
 	public void update() {
 		levelHandler.update();
 		player.update();
-		
+		pauseMenu.update();
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		levelHandler.draw(g);
-		player.render(g);
-		
+		if(!paused) {
+			levelHandler.draw(g);
+			player.render(g);
+		}
+		else {
+			pauseMenu.draw(g);
+		}
 	}
 
 	@Override
@@ -49,21 +57,30 @@ public class playing extends state implements statemethods {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(paused)
+			pauseMenu.mousePressed(e);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(paused)
+			pauseMenu.mouseReleased(e);
 		
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(paused)
+			pauseMenu.mouseMoved(e);
 		
 	}
+	
+	public void unpauseGame() {
+		paused = false;
+		
+	}
+	
+	
 
 	@Override
 	public void keyPressed(KeyEvent e) {
