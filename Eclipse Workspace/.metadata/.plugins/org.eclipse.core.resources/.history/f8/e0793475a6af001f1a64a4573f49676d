@@ -34,8 +34,7 @@ public class playing extends state implements statemethods {
 		super(game);
 		initClasses();
 		bgIMG1 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_ONE);
-		bgIMG2 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_TWO);
-		bgIMG3 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_THREE);
+		
 		bgIMG4 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_FOUR);
 	}
 	
@@ -81,7 +80,7 @@ public class playing extends state implements statemethods {
 	public void draw(Graphics g) {
 		g.drawImage(bgIMG1, 0, 0, gameClass.GAME_WIDTH, gameClass.GAME_HEIGHT, null);
 		
-		drawTerrain(g);
+		drawTrees(g);
 		
 		levelHandler.draw(g, xLvlOffset);
 		player.render(g, xLvlOffset);
@@ -93,7 +92,7 @@ public class playing extends state implements statemethods {
 		}
 	}
 
-	private void drawTerrain(Graphics g) {
+	private void drawTrees(Graphics g) {
 		g.drawImage(bgIMG4, -TREES_WIDTH / 2, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
 		
 	}

@@ -21,8 +21,8 @@ public class playing extends state implements statemethods {
 	private boolean paused = false;
 	
 	private int xLvlOffset;
-	private int leftBorder = (int) (0.2f * gameClass.GAME_WIDTH);
-	private int rightBorder = (int) (0.8f * gameClass.GAME_WIDTH);
+	private int leftBorder = (int) (0.48f * gameClass.GAME_WIDTH);
+	private int rightBorder = (int) (0.52f * gameClass.GAME_WIDTH);
 	
 	private int lvlTilesWide = loadSave.GetLevelData()[0].length;
 	private int maxTilesOffset = lvlTilesWide - gameClass.TILES_IN_WIDTH;
@@ -34,8 +34,7 @@ public class playing extends state implements statemethods {
 		super(game);
 		initClasses();
 		bgIMG1 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_ONE);
-		bgIMG2 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_TWO);
-		bgIMG3 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_THREE);
+		
 		bgIMG4 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_FOUR);
 	}
 	
@@ -51,9 +50,8 @@ public class playing extends state implements statemethods {
 	public void update() {
 		if(!paused) {
 			levelHandler.update();
-			checkCloseToBorder();
 			player.update();
-			
+			checkCloseToBorder();
 		}
 		else {
 			pauseMenu.update();
@@ -81,7 +79,7 @@ public class playing extends state implements statemethods {
 	public void draw(Graphics g) {
 		g.drawImage(bgIMG1, 0, 0, gameClass.GAME_WIDTH, gameClass.GAME_HEIGHT, null);
 		
-		drawTerrain(g);
+		drawTrees(g);
 		
 		levelHandler.draw(g, xLvlOffset);
 		player.render(g, xLvlOffset);
@@ -93,8 +91,8 @@ public class playing extends state implements statemethods {
 		}
 	}
 
-	private void drawTerrain(Graphics g) {
-		g.drawImage(bgIMG4, -TREES_WIDTH / 2, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
+	private void drawTrees(Graphics g) {
+		g.drawImage(bgIMG4, -TREES_WIDTH, (int) (-192 * gameClass.SCALE - TREES_HEIGHT), TREES_WIDTH * 2, TREES_HEIGHT * 2, null);
 		
 	}
 

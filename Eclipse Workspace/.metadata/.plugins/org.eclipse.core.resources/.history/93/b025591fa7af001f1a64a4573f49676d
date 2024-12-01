@@ -95,6 +95,8 @@ public class playing extends state implements statemethods {
 
 	private void drawTerrain(Graphics g) {
 		g.drawImage(bgIMG4, -TREES_WIDTH / 2, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
+		g.drawImage(bgIMG3, -TREES_WIDTH / 2, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
+		g.drawImage(bgIMG2, -TREES_WIDTH / 2, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
 		
 	}
 
