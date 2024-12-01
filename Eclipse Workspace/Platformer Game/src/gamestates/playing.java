@@ -1,26 +1,41 @@
 package gamestates;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 import entities.playerClass;
 import levels.levelManager;
 import main.gameClass;
 import ui.pauseOverlay;
+import utilz.loadSave;
+import static utilz.constants.Environment.*;
 
 public class playing extends state implements statemethods {
 	
 	private playerClass player;
 	private levelManager levelHandler;
 	private pauseOverlay pauseMenu;
-	private boolean paused = true;
+	private boolean paused = false;
 	
+	private int xLvlOffset;
+	private int leftBorder = (int) (0.48f * gameClass.GAME_WIDTH);
+	private int rightBorder = (int) (0.52f * gameClass.GAME_WIDTH);
 	
+	private int lvlTilesWide = loadSave.GetLevelData()[0].length;
+	private int maxTilesOffset = lvlTilesWide - gameClass.TILES_IN_WIDTH;
+	private int maxLvlOffsetX = maxTilesOffset * gameClass.TILES_SIZE;
+	
+	private BufferedImage bgIMG1, bgIMG2, bgIMG3, bgIMG4;
 	
 	public playing(gameClass game) {
 		super(game);
 		initClasses();
+		bgIMG1 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_ONE);
+		
+		bgIMG4 = loadSave.GetSpriteAtlas(loadSave.LVL_BG_FOUR);
 	}
 	
 	private void initClasses() {
@@ -33,20 +48,52 @@ public class playing extends state implements statemethods {
 
 	@Override
 	public void update() {
-		levelHandler.update();
-		player.update();
-		pauseMenu.update();
+		if(!paused) {
+			levelHandler.update();
+			player.update();
+			checkCloseToBorder();
+		}
+		else {
+			pauseMenu.update();
+		}
+	}
+	
+
+	private void checkCloseToBorder() {
+		int playerX = (int) player.getHitbox().x;
+		int diff = playerX - xLvlOffset;
+		
+		if(diff > rightBorder)
+			xLvlOffset += diff - rightBorder;
+		else if(diff < leftBorder)
+			xLvlOffset += diff - leftBorder;
+		
+		if(xLvlOffset > maxLvlOffsetX)
+			xLvlOffset = maxLvlOffsetX;
+		else if(xLvlOffset < 0)
+			xLvlOffset = 0;
+		
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		if(!paused) {
-			levelHandler.draw(g);
-			player.render(g);
-		}
-		else {
+		g.drawImage(bgIMG1, 0, 0, gameClass.GAME_WIDTH, gameClass.GAME_HEIGHT, null);
+		
+		drawTrees(g);
+		
+		levelHandler.draw(g, xLvlOffset);
+		player.render(g, xLvlOffset);
+		
+		if(paused) {
+			g.setColor(new Color(0,0,0,100));
+			g.fillRect(0, 0, gameClass.GAME_WIDTH, gameClass.GAME_WIDTH);
 			pauseMenu.draw(g);
 		}
+	}
+
+	private void drawTrees(Graphics g) {
+		g.drawImage(bgIMG4, 0, (int) (-192 * gameClass.SCALE), TREES_WIDTH, TREES_HEIGHT, null);
+		
 	}
 
 	@Override
@@ -80,6 +127,10 @@ public class playing extends state implements statemethods {
 		
 	}
 	
+	public void mouseDragged(MouseEvent e) {
+		if(paused)
+			pauseMenu.mouseDragged(e);
+	}
 	
 
 	@Override
@@ -100,9 +151,10 @@ public class playing extends state implements statemethods {
 		case KeyEvent.VK_SPACE:
 			player.setJump(true);
 			break;
-		case KeyEvent.VK_BACK_SPACE:
-			gamestate.state = gamestate.MENU;
-			player.resetDirBooleans();
+		case KeyEvent.VK_ESCAPE:
+			//gamestate.state = gamestate.MENU;
+			//player.resetDirBooleans();
+			paused = !paused;
 		break;
 		}
 		

@@ -1,0 +1,62 @@
+package ui;
+
+
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import static utilz.constants.UI.VolumeButtons.*;
+
+import utilz.loadSave;
+
+public class volumeButton extends pauseButton {
+
+	private BufferedImage[] imgs;
+	private BufferedImage slider;
+	
+	public volumeButton(int x, int y, int width, int height) {
+		super(x, y, width, height);
+		loadImgs();
+	}
+
+	private void loadImgs() {
+		BufferedImage temp = loadSave.GetSpriteAtlas(loadSave.URM_BUTTONS);
+		imgs = new BufferedImage[3];
+		for(int i = 0; i < imgs.length; i++)
+			imgs[i] = temp.getSubimage(i, i, i, i)
+		
+		
+	}
+
+	public void update() {
+		
+		
+	}
+
+	
+	public void draw(Graphics g) {
+		
+	}
+	
+	public void resetBools() {
+		mouseOver = false;
+		mousePressed = false;
+		
+	}
+
+	public boolean isMouseOver() {
+		return mouseOver;
+	}
+
+	public void setMouseOver(boolean mouseOver) {
+		this.mouseOver = mouseOver;
+	}
+
+	public boolean isMousePressed() {
+		return mousePressed;
+	}
+
+	public void setMousePressed(boolean mousePressed) {
+		this.mousePressed = mousePressed;
+	}
+	
+}

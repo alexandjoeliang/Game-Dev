@@ -13,27 +13,28 @@ import utilz.loadSave;
 public class menu extends state implements statemethods {
 
 	private menubuttons[] buttons = new menubuttons[3];
-	private BufferedImage backgroundImg;
+	private BufferedImage backgroundImg, menuBG;
 	private int menuX, menuY, menuWidth, menuHeight;
 	
 	public menu(gameClass game) {
 		super(game);
 		loadButtons();
 		loadBackground();
+		menuBG = loadSave.GetSpriteAtlas(loadSave.MENU_BACKGROUND_IMAGE);
 	}
 
 	private void loadBackground() {
 		backgroundImg = loadSave.GetSpriteAtlas(loadSave.MENU_BACKGROUND);
-		menuWidth = (int) (backgroundImg.getWidth() * gameClass.SCALE);
-		menuHeight = (int) (backgroundImg.getHeight() * gameClass.SCALE);
+		menuWidth = (int) (backgroundImg.getWidth() * gameClass.SCALE * 1.2f);
+		menuHeight = (int) (backgroundImg.getHeight() * gameClass.SCALE * 1.2f);
 		menuX = gameClass.GAME_WIDTH / 2 - menuWidth / 2;
-		menuY = (int) (45 * gameClass.SCALE);
+		menuY = (int) (90 * gameClass.SCALE);
 	}
 
 	private void loadButtons() {
-		buttons[0] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (150 * gameClass.SCALE), 0, gamestate.PLAYING);
-		buttons[1] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (220 * gameClass.SCALE), 1, gamestate.OPTIONS);
-		buttons[2] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (290 * gameClass.SCALE), 2, gamestate.QUIT);
+		buttons[0] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (180 * gameClass.SCALE * 1.2), 0, gamestate.PLAYING);
+		buttons[1] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (245 * gameClass.SCALE * 1.2), 1, gamestate.OPTIONS);
+		buttons[2] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (310 * gameClass.SCALE * 1.2), 2, gamestate.QUIT);
  		
 	}
 
@@ -46,6 +47,7 @@ public class menu extends state implements statemethods {
 
 	@Override
 	public void draw(Graphics g) {
+		g.drawImage(menuBG, 0, 0, gameClass.GAME_WIDTH, gameClass.GAME_HEIGHT, null);
 		g.drawImage(backgroundImg, menuX, menuY, menuWidth, menuHeight, null);
 		for(menubuttons mb : buttons) {
 			mb.draw(g);
