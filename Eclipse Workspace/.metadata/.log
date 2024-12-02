@@ -6205,3 +6205,296 @@ Java Model Exception: Java Model Status [drawHitbox(Graphics) [in entity [in [Wo
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
 !SUBENTRY 1 org.eclipse.jdt.core 4 969 2024-12-01 17:00:54.505
 !MESSAGE drawHitbox(Graphics) [in entity [in [Working copy] entity.java [in entities [in src [in Platformer Game]]]]] does not exist
+!SESSION 2024-12-01 21:07:34.850 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2024-12-01 21:07:52.185
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-12-01 21:07:52.185
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2dde0a34,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@61836cd9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-12-01 21:07:59.275
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\alexa'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 4 2024-12-01 21:23:46.986
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package utilz;
+
+import java.awt.geom.Rectangle2D;
+
+import main.gameClass;
+import utilz.constants.Directions;
+
+public class helpMethods {
+	
+	public static boolean CanMoveHere(float x, float y, float width, float height, int[][] lvlData) {
+		
+			//left
+			for(int yStep = 0; yStep < ((int) (height)) / 2; yStep += gameClass.SCALE * gameClass.PLAYER_TO_TILE_RATIO) {
+				if(IsSolid(x, y + yStep, lvlData)) {
+					return false;
+				}
+				if(IsSolid(x, y + height - yStep, lvlData)) {
+					return false;
+				}
+			}
+			//up
+			/*for(int xStep = 0; xStep < ((int) (width)) / 2; xStep += gameClass.SCALE * gameClass.PLAYER_TO_TILE_RATIO) {
+				if(IsSolid(x + xStep, y, lvlData)) {
+					return false;
+				}
+				if(IsSolid(x + width - xStep, y, lvlData)) {
+					return false;
+				}
+			}*/
+			//right
+			for(int yStep = 0; yStep < ((int) (height)) / 2; yStep += gameClass.SCALE * gameClass.PLAYER_TO_TILE_RATIO) {
+				if(IsSolid(x + width, y + yStep, lvlData)) {
+					return false;
+				}
+				if(IsSolid(x + width, y + height - yStep, lvlData)) {
+					return false;
+				}
+			}
+			//down
+			/*for(int xStep = 0; xStep < ((int) (width)) / 2; xStep += gameClass.SCALE * gameClass.PLAYER_TO_TILE_RATIO) {
+				if(IsSolid(x + xStep, y + height, lvlData)) {
+					return false;
+				}
+				if(IsSolid(x + width - xStep, y + height, lvlData)) {
+					return false;
+				}
+			}*/
+
+		
+		
+		return true;
+	}
+	
+		
+	private static boolean IsSolid(float x, float y, int[][] lvlData) {
+		
+		int maxWidth = lvlData[0].length * gameClass.TILES_SIZE;
+		
+		if(x < 0 || x >= maxWidth) {
+			
+			return true;
+			
+		}
+		if(y < 0 || y >= gameClass.GAME_HEIGHT) {
+			
+			return true;
+			
+		}
+		float xIndex = x / gameClass.TILES_SIZE;
+		float yIndex = y / gameClass.TILES_SIZE;
+		
+		int value = lvlData[(int) yIndex][(int) xIndex];
+		
+		if(value >= 48 || value < 0 || value != 11) {
+			return true;
+		}
+			else {
+				return false;	
+			
+		}
+		
+	}
+	
+	public static boolean IsTileSolid(int xTile, int yTile, int[][] lvlData)
+	
+	
+	public static float GetEntityXPosNextToWall(Rectangle2D.Float hitbox, float xSpeed) {
+		int currentTile;
+		
+		if(xSpeed > 0) {
+			//right
+			currentTile = (int)((hitbox.x + hitbox.width) / gameClass.TILES_SIZE);
+			int tileXPos = currentTile * gameClass.TILES_SIZE;
+			int xOffset = (int)(gameClass.TILES_SIZE - hitbox.width);
+			
+			return tileXPos + xOffset - (1 / gameClass.PLAYER_TO_TILE_RATIO);
+			
+		}else{
+			//left
+			currentTile = (int)(hitbox.x / gameClass.TILES_SIZE);
+			return currentTile * gameClass.TILES_SIZE;
+			
+		}
+		
+	}
+	
+	public static float GetEntityYPosUnderRoofOrAboveFloor(Rectangle2D.Float hitbox, float airSpeed) {
+		int currentTile;
+		
+		if(airSpeed > 0) {
+			//jumping or hitting roof
+			currentTile = (int)((hitbox.y + hitbox.height) / gameClass.TILES_SIZE);
+			int tileYPos = currentTile * gameClass.TILES_SIZE;
+			int yOffset = (int)(gameClass.TILES_SIZE - hitbox.height);
+			
+			return tileYPos + yOffset - (1 / gameClass.PLAYER_TO_TILE_RATIO);
+			
+		} else {
+			//falling or touching floor
+			currentTile = (int)(hitbox.y / gameClass.TILES_SIZE);
+			return currentTile * gameClass.TILES_SIZE;
+			
+		}
+		
+		
+	}
+	
+	public static boolean IsEntityOnFloor(Rectangle2D.Float hitbox, int[][] lvlData) {
+		//check pixels below bottom
+		if(!IsSolid(hitbox.x, hitbox.y + hitbox.height + 1, lvlData)) {
+			if(!IsSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, lvlData)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static boolean IsFloor(Rectangle2D.Float hitbox, float xSpeed, int[][] lvlData){
+		if(xSpeed < 0)
+			return IsSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, lvlData);
+		else
+			return IsSolid(hitbox.x + xSpeed + hitbox.width, hitbox.y + hitbox.height + 1, lvlData);
+	}
+	
+	
+	public static boolean IsSightClear(int[][] lvlData, Rectangle2D.Float hitbox1, Rectangle2D.Float hitbox2, int tileY) {
+		int xTile1 = (int) (hitbox1.x / gameClass.TILES_SIZE);
+		int xTile2 = (int) (hitbox2.x / gameClass.TILES_SIZE);
+		
+		if(xTile1 > xTile2) {
+			for(int i = 0; i < xTile1 - xTile2; i++) {
+				if()
+				
+			}
+			
+		}
+			
+			
+		return false;
+	}
+	
+	
+	
+	
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:3189)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2024-12-01 21:23:46.989
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:3189)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2024-12-01 21:23:46.990
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:3189)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)

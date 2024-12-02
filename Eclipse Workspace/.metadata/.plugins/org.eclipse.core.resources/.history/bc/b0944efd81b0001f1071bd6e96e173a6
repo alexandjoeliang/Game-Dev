@@ -1,0 +1,66 @@
+package entities;
+
+import static utilz.constants.Directions.*;
+import static utilz.constants.EnemyConstants.*;
+
+
+import main.gameClass;
+
+public class slime extends enemy {
+
+	public slime(float x, float y) {
+		super(x, y, SLIME_WIDTH, SLIME_HEIGHT, SLIME);
+		initHitbox(x, y, (int) (21 * gameClass.SCALE * SLIME_SCALE), (int) (17 * gameClass.SCALE * SLIME_SCALE));
+		
+	}
+	
+	public void update(int[][] lvlData, playerClass player) {
+		updateMove(lvlData, player);
+		updateAnimationTick();
+		
+	}
+
+	private void updateMove(int[][] lvlData, playerClass player) {
+		if(firstUpdate)
+			firstUpdateCheck(lvlData);
+		
+		
+		if(inAir)
+			updateInAir(lvlData);
+		else {
+			switch(enemyState) {
+			case IDLE:
+				newState(WALKING);
+				break;
+			case WALKING:
+				if(canSeePlayer(lvlData, player)) {
+					turnTowardsPlayer(player);
+					if(isPlayerAttackable(player))
+						newState(ATTACK);
+				}
+				
+				move(lvlData);	
+				
+				break;
+				
+			}
+		}
+		
+	}
+	
+	public int flipX() {
+		if(walkDir == RIGHT)
+			return width;
+		else
+			return 0;
+		
+	}
+	
+	public int flipW() {
+		
+		
+	}
+	
+	
+	
+}

@@ -1,6 +1,7 @@
 package entities;
 
 import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -26,9 +27,10 @@ public class enemyManager {
 		slimes = loadSave.getSlimes();
 	}
 
-	public void update(int[][] lvlData) {
+	public void update(int[][] lvlData, playerClass player) {
 		for(slime s : slimes)
-			s.update(lvlData);
+			if(s.isActive())
+				s.update(lvlData, player);
 		
 	}
 	
@@ -40,9 +42,25 @@ public class enemyManager {
 	
 	private void drawSlimes(Graphics g, int xLvlOffset) {
 		for(slime s : slimes) {
-			g.drawImage(slimeArray[s.getEnemyState()][s.getAniIndex()], (int)(s.getHitbox().x) - xLvlOffset - SLIME_DRAWOFFSET_X, (int)(s.getHitbox().y) - SLIME_DRAWOFFSET_Y, SLIME_WIDTH, SLIME_HEIGHT, null );
-			s.drawHitbox(g, xLvlOffset);
+			if(s.isActive()) {
+				g.drawImage(slimeArray[s.getEnemyState()][s.getAniIndex()],
+						(int)(s.getHitbox().x) - xLvlOffset - SLIME_DRAWOFFSET_X + s.flipX(),
+						(int)(s.getHitbox().y) - SLIME_DRAWOFFSET_Y,
+						SLIME_WIDTH * s.flipW(), SLIME_HEIGHT, null );
+				s.drawHitbox(g, xLvlOffset);
+				s.drawAttackBox(g, xLvlOffset);
+			}
 		}
+	}
+	
+	public void checkEnemyHit(Rectangle2D.Float attackBox) {
+		for(slime s : slimes)
+			if(s.isActive())
+			if(attackBox.intersects(s.getHitbox())) {
+				s.hurt(10);//how much dmg player deals
+				return;
+			}
+
 	}
 
 	private void loadEnemyImgs() {
@@ -51,6 +69,12 @@ public class enemyManager {
 		for(int j = 0; j < slimeArray.length; j++)
 			for(int i = 0; i < slimeArray[j].length; i++)
 				slimeArray[j][i] = temp.getSubimage(i * SLIME_WIDTH_DEFAULT, j * SLIME_HEIGHT_DEFAULT, SLIME_WIDTH_DEFAULT, SLIME_HEIGHT_DEFAULT);
+		
+	}
+
+	public void resetAllEnemies() {
+		for(slime s : slimes)
+			s.resetEnemy();
 		
 	}
 	

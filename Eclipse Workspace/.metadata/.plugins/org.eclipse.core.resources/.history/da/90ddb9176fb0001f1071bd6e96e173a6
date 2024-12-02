@@ -1,0 +1,60 @@
+package entities;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
+import gamestates.playing;
+import utilz.loadSave;
+import static utilz.constants.EnemyConstants.*;
+
+public class enemyManager {
+	
+	private playing play;
+	private BufferedImage[][] slimeArray;
+	private ArrayList<slime> slimes = new ArrayList<>();
+	
+	
+	public enemyManager(playing play) {
+		this.play = play;
+		loadEnemyImgs();
+		addEnemies();
+		
+	}
+
+	private void addEnemies() {
+		slimes = loadSave.getSlimes();
+	}
+
+	public void update(int[][] lvlData) {
+		for(slime s : slimes)
+			s.update(lvlData);
+		
+	}
+	
+	public void draw(Graphics g, int xLvlOffset) {
+		drawSlimes(g, xLvlOffset);
+		
+		
+	}
+	
+	private void drawSlimes(Graphics g, int xLvlOffset) {
+		for(slime s : slimes) {
+			g.drawImage(slimeArray[s.getEnemyState()][s.getAniIndex()], (int)(s.getHitbox().x) - xLvlOffset - SLIME_DRAWOFFSET_X, (int)(s.getHitbox().y) - SLIME_DRAWOFFSET_Y, SLIME_WIDTH, SLIME_HEIGHT, null );
+			s.drawHitbox(g, xLvlOffset);
+		}
+	}
+
+	private void loadEnemyImgs() {
+		slimeArray = new BufferedImage[5][5];
+		BufferedImage temp = loadSave.GetSpriteAtlas(loadSave.SLIME_SPRITE);
+		for(int j = 0; j < slimeArray.length; j++)
+			for(int i = 0; i < slimeArray[j].length; i++)
+				slimeArray[j][i] = temp.getSubimage(i * SLIME_WIDTH_DEFAULT, j * SLIME_HEIGHT_DEFAULT, SLIME_WIDTH_DEFAULT, SLIME_HEIGHT_DEFAULT);
+		
+	}
+	
+	
+	
+	
+}

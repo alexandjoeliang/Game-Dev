@@ -27,6 +27,8 @@ public class loadSave {
 	public static final String URM_BUTTONS = "/urm_buttons.png";
 	public static final String VOLUME_BUTTONS = "/volume_buttons.png";
 	
+	public static final String STATUS_BAR = "/health_power_bar.png";
+	
 	public static final String SLIME_SPRITE = "/SlimeSheet.png";
 	
 	public static final String LVL_BG_ONE = "/levelBG/1.png";
