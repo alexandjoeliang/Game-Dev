@@ -34,7 +34,7 @@ public class gameWindow extends JFrame{
 		frame.pack();
 		//frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		
+		frame.setLocation(-7, 0);
 		
 
         Cursor customCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursor, new Point(0, 0), "custom_cursor");

@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import main.gameClass;
 import ui.menubuttons;
 import utilz.loadSave;
+import static utilz.constants.UI.Buttons.*;
 
 public class menu extends state implements statemethods {
 
@@ -25,16 +26,16 @@ public class menu extends state implements statemethods {
 
 	private void loadBackground() {
 		backgroundImg = loadSave.GetSpriteAtlas(loadSave.MENU_BACKGROUND);
-		menuWidth = (int) (backgroundImg.getWidth() * gameClass.SCALE * 1.2f);
-		menuHeight = (int) (backgroundImg.getHeight() * gameClass.SCALE * 1.2f);
+		menuWidth = (int) (backgroundImg.getWidth() * gameClass.SCALE * MB_SCALE);
+		menuHeight = (int) (backgroundImg.getHeight() * gameClass.SCALE * MB_SCALE);
 		menuX = gameClass.GAME_WIDTH / 2 - menuWidth / 2;
 		menuY = (int) (90 * gameClass.SCALE);
 	}
 
 	private void loadButtons() {
-		buttons[0] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (180 * gameClass.SCALE * 1.2), 0, gamestate.PLAYING);
-		buttons[1] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (245 * gameClass.SCALE * 1.2), 1, gamestate.OPTIONS);
-		buttons[2] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (310 * gameClass.SCALE * 1.2), 2, gamestate.QUIT);
+		buttons[0] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (180 * gameClass.SCALE * MB_SCALE), 0, gamestate.PLAYING);
+		buttons[1] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (245 * gameClass.SCALE * MB_SCALE), 1, gamestate.OPTIONS);
+		buttons[2] = new menubuttons(gameClass.GAME_WIDTH / 2, (int) (310 * gameClass.SCALE * MB_SCALE), 2, gamestate.QUIT);
  		
 	}
 

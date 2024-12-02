@@ -1,0 +1,34 @@
+package entities;
+
+import java.awt.image.BufferedImage;
+
+import gamestates.playing;
+import utilz.loadSave;
+
+public class enemyManager {
+	
+	private playing play;
+	private BufferedImage[][] slimeArray;
+	
+	
+	public enemyManager(playing play) {
+		this.play = play;
+		loadEnemyImgs();
+		
+		
+		
+	}
+
+	private void loadEnemyImgs() {
+		slimeArray = new BufferedImage[5][5];
+		BufferedImage temp = loadSave.GetSpriteAtlas(loadSave.SLIME_SPRITE);
+		for(int j = 0; j < slimeArray.length; j++)
+			for(int i = 0; i < slimeArray[i].length; i++)
+				slimeArray = temp.getSubimage(i * SLIME_WIDTH_DEFAULT, j * SLIME_HEIGHT_DEFAULT, SLIME_WIDTH_DEFAULT, SLIME_HEIGHT_DEFAULT);
+		
+	}
+	
+	
+	
+	
+}

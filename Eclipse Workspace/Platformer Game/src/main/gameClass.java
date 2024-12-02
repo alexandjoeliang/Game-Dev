@@ -55,8 +55,6 @@ public class gameClass implements Runnable {
 	}
 	
 	public void update() {
-		
-		
 		switch(gamestate.state) {
 		case MENU:
 			menuobj.update();
@@ -71,14 +69,11 @@ public class gameClass implements Runnable {
 			System.exit(0);
 		default:
 			break;
-		
 		}
 		
 	}
 	
 	public void render(Graphics g) {
-		
-		
 		switch(gamestate.state) {
 		case MENU:
 			menuobj.draw(g);

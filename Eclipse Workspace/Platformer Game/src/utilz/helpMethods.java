@@ -81,6 +81,8 @@ public class helpMethods {
 		
 	}
 	
+	public static boolean IsTileSolid
+	
 	
 	public static float GetEntityXPosNextToWall(Rectangle2D.Float hitbox, float xSpeed) {
 		int currentTile;
@@ -133,6 +135,29 @@ public class helpMethods {
 		return true;
 	}
 	
+	public static boolean IsFloor(Rectangle2D.Float hitbox, float xSpeed, int[][] lvlData){
+		if(xSpeed < 0)
+			return IsSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, lvlData);
+		else
+			return IsSolid(hitbox.x + xSpeed + hitbox.width, hitbox.y + hitbox.height + 1, lvlData);
+	}
+	
+	
+	public static boolean IsSightClear(int[][] lvlData, Rectangle2D.Float hitbox1, Rectangle2D.Float hitbox2, int tileY) {
+		int xTile1 = (int) (hitbox1.x / gameClass.TILES_SIZE);
+		int xTile2 = (int) (hitbox2.x / gameClass.TILES_SIZE);
+		
+		if(xTile1 > xTile2) {
+			for(int i = 0; i < xTile1 - xTile2; i++) {
+				if()
+				
+			}
+			
+		}
+			
+			
+		return false;
+	}
 	
 	
 	

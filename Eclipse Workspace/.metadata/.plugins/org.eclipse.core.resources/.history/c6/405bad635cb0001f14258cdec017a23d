@@ -1,0 +1,39 @@
+package entities;
+
+import static utilz.constants.Directions.LEFT;
+import static utilz.constants.EnemyConstants.*;
+import static utilz.helpMethods.CanMoveHere;
+import static utilz.helpMethods.GetEntityYPosUnderRoofOrAboveFloor;
+import static utilz.helpMethods.IsEntityOnFloor;
+import static utilz.helpMethods.IsFloor;
+
+import main.gameClass;
+
+public class slime extends enemy {
+
+	public slime(float x, float y) {
+		super(x, y, SLIME_WIDTH, SLIME_HEIGHT, SLIME);
+		initHitbox(x, y, (int) (21 * gameClass.SCALE * SLIME_SCALE), (int) (17 * gameClass.SCALE * SLIME_SCALE));
+		
+	}
+	
+	public void update(int[][] lvlData) {
+		updateMove(lvlData);
+		updateAnimationTick();
+		
+	}
+
+	private void updateMove(int[][] lvlData) {
+		if(firstUpdate)
+			firstUpdateCheck(lvlData);
+		
+		
+		if(inAir)
+			updateInAir(lvlData);
+		else
+			move(lvlData);
+		
+		
+	}
+	
+}

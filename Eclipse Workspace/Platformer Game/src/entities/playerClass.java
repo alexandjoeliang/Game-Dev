@@ -18,7 +18,7 @@ public class playerClass extends entity {
 	private BufferedImage[][] animations;
 	private int aniTick, aniIndex, aniSpeed = 20;
 	private int playerAction = IDLE;
-	private boolean moving = false/*, attacking = false*/;
+	private boolean moving = false, attacking = false;
 	private boolean left, up, right, down, jump;
 	private float playerSpeed = 1.5f * gameClass.SCALE;
 	private int[][] lvlData;
@@ -47,10 +47,13 @@ public class playerClass extends entity {
 
 	public void render(Graphics g, int lvlOffset) {
 		g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset, (int) (hitbox.y - yDrawOffset), width, height, null);
-		//drawHitbox(g);
+		//drawHitbox(g, lvlOffset);
 	}
 
 	private void updateAnimationTick() {
+		if(playerAction == ATTACK_1)
+			aniSpeed = 15;
+		
 		aniTick++;
 		if (aniTick >= aniSpeed) {
 			aniTick = 0;
@@ -58,7 +61,8 @@ public class playerClass extends entity {
 				if(playerAction != JUMP && playerAction != FALLING) {
 					aniIndex = 0;
 				}
-				//attacking = false;
+				attacking = false;
+				aniSpeed = 20;
 			}
 			if(aniIndex < GetSpriteAmount(playerAction)) {
 				aniIndex++;
@@ -87,8 +91,8 @@ public class playerClass extends entity {
 			}
 		}
 		
-		/*if (attacking)
-			playerAction = ATTACK_1;*/
+		if (attacking)
+			playerAction = ATTACK_1;
 
 		if (startAni != playerAction)
 			resetAniTick();
@@ -196,7 +200,7 @@ public class playerClass extends entity {
 	private void loadAnimations() {
 		BufferedImage img = loadSave.GetSpriteAtlas(loadSave.PLAYER_ATLAS);
 
-			animations = new BufferedImage[4][12];
+			animations = new BufferedImage[5][12];
 			for (int j = 0; j < animations.length; j++)
 				for (int i = 0; i < animations[j].length; i++)
 					animations[j][i] = img.getSubimage(i * 64, j * 64, 64, 64);
@@ -220,9 +224,9 @@ public class playerClass extends entity {
 		jump = false;
 	}
 
-	/*public void setAttacking(boolean attacking) {
+	public void setAttacking(boolean attacking) {
 		this.attacking = attacking;
-	}*/
+	}
 
 	public boolean isLeft() {
 		return left;

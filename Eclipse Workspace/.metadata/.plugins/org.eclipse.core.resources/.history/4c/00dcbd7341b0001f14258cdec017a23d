@@ -1,0 +1,14 @@
+package entities;
+
+import static utilz.constants.EnemyConstants.*;
+
+import main.gameClass;
+
+public class slime extends enemy {
+
+	public slime(float x, float y) {
+		super(x, y, SLIME_WIDTH, SLIME_HEIGHT, SLIME);
+		initHitbox(x + 6, y + 15, 21 * gameClass.SCALE * 2, 17 * gameClass.SCALE * 2);
+	}
+
+}

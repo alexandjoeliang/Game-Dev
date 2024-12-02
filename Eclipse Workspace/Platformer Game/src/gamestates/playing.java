@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
+import entities.enemyManager;
 import entities.playerClass;
 import levels.levelManager;
 import main.gameClass;
@@ -17,12 +18,13 @@ public class playing extends state implements statemethods {
 	
 	private playerClass player;
 	private levelManager levelHandler;
+	private enemyManager enemyHandler;
 	private pauseOverlay pauseMenu;
 	private boolean paused = false;
 	
 	private int xLvlOffset;
-	private int leftBorder = (int) (0.2f * gameClass.GAME_WIDTH);
-	private int rightBorder = (int) (0.8f * gameClass.GAME_WIDTH);
+	private int leftBorder = (int) (0.45f * gameClass.GAME_WIDTH);
+	private int rightBorder = (int) (0.55f * gameClass.GAME_WIDTH);
 	
 	private int lvlTilesWide = loadSave.GetLevelData()[0].length;
 	private int maxTilesOffset = lvlTilesWide - gameClass.TILES_IN_WIDTH;
@@ -42,6 +44,8 @@ public class playing extends state implements statemethods {
 	private void initClasses() {
 		player = new playerClass(200 * gameClass.SCALE, 200 * gameClass.SCALE, (int) (gameClass.PLAYER_DEFAULT_SIZE * gameClass.SCALE), (int) (gameClass.PLAYER_DEFAULT_SIZE * gameClass.SCALE));
 		levelHandler = new levelManager(game);
+		enemyHandler = new enemyManager(this);
+		
 		player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
 		pauseMenu = new pauseOverlay(this);
 		
@@ -53,6 +57,7 @@ public class playing extends state implements statemethods {
 			levelHandler.update();
 			checkCloseToBorder();
 			player.update();
+			enemyHandler.update(levelHandler.getCurrentLevel().getLevelData());
 			
 		}
 		else {
@@ -79,12 +84,12 @@ public class playing extends state implements statemethods {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(bgIMG1, 0, 0, gameClass.GAME_WIDTH, gameClass.GAME_HEIGHT, null);
 		
 		drawTerrain(g);
 		
 		levelHandler.draw(g, xLvlOffset);
 		player.render(g, xLvlOffset);
+		enemyHandler.draw(g, xLvlOffset);
 		
 		if(paused) {
 			g.setColor(new Color(0,0,0,100));
@@ -94,13 +99,20 @@ public class playing extends state implements statemethods {
 	}
 
 	private void drawTerrain(Graphics g) {
-		g.drawImage(bgIMG4, -TREES_WIDTH / 2, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
+		
+		g.drawImage(bgIMG1, 0, 0, gameClass.GAME_WIDTH, gameClass.GAME_HEIGHT, null);
+		
+		for(int i = 0; i < 2; i++)
+			g.drawImage(bgIMG2, i * TREES_WIDTH - (int) (xLvlOffset * 0.1) - i, 0, TREES_WIDTH, TREES_HEIGHT, null);
+		
+		for(int i = 0; i < 2; i++)
+			g.drawImage(bgIMG4, (i * (int) ( TREES_WIDTH * 1.5 ) ) - (int) (xLvlOffset * 0.6) - i, -TREES_HEIGHT / 2, (int) (TREES_WIDTH * 1.5), (int) (TREES_HEIGHT * 1.5), null);
+		
 		
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -108,6 +120,8 @@ public class playing extends state implements statemethods {
 	public void mousePressed(MouseEvent e) {
 		if(paused)
 			pauseMenu.mousePressed(e);
+		else
+			player.setAttacking(true);
 	}
 
 	@Override

@@ -1,0 +1,12 @@
+package entities;
+
+import static utilz.constants.EnemyConstants.*;
+
+public class slime extends enemy {
+
+	public slime(float x, float y) {
+		super(x, y, SLIME_WIDTH, SLIME_HEIGHT, SLIME);
+		
+	}
+
+}

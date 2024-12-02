@@ -4,10 +4,14 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import entities.slime;
 import main.gameClass;
+
+import static utilz.constants.EnemyConstants.SLIME;
 
 public class loadSave {
 
@@ -22,6 +26,8 @@ public class loadSave {
 	public static final String SOUND_BUTTONS = "/sound_button.png";
 	public static final String URM_BUTTONS = "/urm_buttons.png";
 	public static final String VOLUME_BUTTONS = "/volume_buttons.png";
+	
+	public static final String SLIME_SPRITE = "/SlimeSheet.png";
 	
 	public static final String LVL_BG_ONE = "/levelBG/1.png";
 	public static final String LVL_BG_TWO = "/levelBG/2.png";
@@ -46,6 +52,21 @@ public class loadSave {
 		}
 		return img;
 	}
+	
+	public static ArrayList<slime> getSlimes(){
+		BufferedImage img = GetSpriteAtlas(LEVEL_ONE_DATA);
+		ArrayList<slime> list = new ArrayList<>();
+		for(int j = 0; j < img.getHeight(); j++)
+			for(int i = 0; i < img.getWidth(); i++) {
+				Color color = new Color(img.getRGB(i, j));
+				int value = color.getGreen();
+				if(value == SLIME) 
+					list.add(new slime(i * gameClass.TILES_SIZE, j * gameClass.TILES_SIZE));
+			}
+		
+		return list;
+	}
+	
 	
 	public static int[][] GetLevelData(){
 		

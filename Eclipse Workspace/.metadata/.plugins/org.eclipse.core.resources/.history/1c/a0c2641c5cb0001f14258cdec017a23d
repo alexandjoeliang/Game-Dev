@@ -1,0 +1,64 @@
+package entities;
+
+import static utilz.constants.EnemyConstants.*;
+import static utilz.helpMethods.*;
+import static utilz.constants.Directions.*;
+
+import main.gameClass;
+
+public abstract class enemy extends entity {
+
+	protected int aniIndex, enemyState, enemyType;
+	protected int aniTick, aniSpeed = 20;
+	protected boolean firstUpdate = true;
+	protected boolean inAir = false;
+	protected float fallSpeed;
+	protected float gravity = 0.04f * gameClass.SCALE;
+	protected float walkSpeed = 0.9f * gameClass.SCALE;
+	protected int walkDir = LEFT;
+			
+	
+	public enemy(float x, float y, int width, int height, int enemyType) {
+		super(x, y, width, height);
+		this.enemyType = enemyType;
+		initHitbox(x, y, width, height);
+	
+	}
+
+	protected void firstUpdateCheck(int[][] lvlData) {
+		if(!IsEntityOnFloor(hitbox, lvlData))
+			inAir = true;
+		firstUpdate = false;
+	}
+	
+	
+	
+	
+	protected void updateAnimationTick() {
+		aniTick++;
+		if(aniTick >= aniSpeed) {
+			aniTick = 0;
+			aniIndex++;
+			if(aniIndex >= GetSpriteAmount(enemyType, enemyState)) {
+				aniIndex = 0;
+			}
+		}
+	}
+	
+	protected void changeWalkDir() {
+		if(walkDir == LEFT)
+			walkDir = RIGHT;
+		else
+			walkDir = LEFT;
+	}
+
+	public int getAniIndex() {
+		return aniIndex;
+	}
+	public int getEnemyState() {
+		return enemyState;
+	}
+	
+	
+	
+}
