@@ -71,7 +71,7 @@ public class playerClass extends entity {
 	}
 
 	private void initAttackBox() {
-		attackBox = new Rectangle2D.Float(x, y, (int) (160 * gameClass.SCALE), (int) (80 * gameClass.SCALE));
+		attackBox = new Rectangle2D.Float(x, y, (int) (128 * gameClass.SCALE), (int) (80 * gameClass.SCALE));
 		
 	}
 
@@ -135,7 +135,7 @@ public class playerClass extends entity {
 
 	private void updateAnimationTick() {
 		if(playerAction == ATTACK_1)
-			aniSpeed = 15;
+			aniSpeed = 10;
 		
 		aniTick++;
 		if (aniTick >= aniSpeed) {
