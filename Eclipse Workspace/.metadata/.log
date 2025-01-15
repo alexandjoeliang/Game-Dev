@@ -6673,3 +6673,239 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-12-13 12:10:27.135 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2024-12-13 12:10:47.571
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-12-13 12:10:47.571
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@645d4639,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8ee03f5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-12-13 12:10:52.656
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\alexa'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 4 2024-12-13 16:10:01.041
+!MESSAGE JavaBuilder handling CoreException while building: Platformer Game
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to init ct.sym for C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\jrt-fs.jar
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrtWithReleaseOption.<init>(ClasspathJrtWithReleaseOption.java:79)
+	at org.eclipse.jdt.internal.core.builder.ClasspathLocation.forJrtSystem(ClasspathLocation.java:146)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.computeClasspathLocations(NameEnvironment.java:313)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.<init>(NameEnvironment.java:62)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:643)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:181)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:292)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:481)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:565)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:603)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:116)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.lambda$0(LaunchConfigurationDelegate.java:406)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2333)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:412)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:122)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:777)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.nio.file.AccessDeniedException: C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\ct.sym
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:96)
+	at java.base/sun.nio.fs.WindowsLinkSupport.getRealPath(WindowsLinkSupport.java:257)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:931)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:42)
+	at jdk.zipfs/jdk.nio.zipfs.ZipFileSystemProvider.newFileSystem(ZipFileSystemProvider.java:102)
+	at java.base/java.nio.file.FileSystems.newFileSystem(FileSystems.java:338)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.init(CtSym.java:138)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.<init>(CtSym.java:121)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.lambda$1(JRTUtil.java:136)
+	at java.base/java.util.concurrent.ConcurrentHashMap.compute(ConcurrentHashMap.java:1916)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.getCtSym(JRTUtil.java:133)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrtWithReleaseOption.<init>(ClasspathJrtWithReleaseOption.java:77)
+	... 28 more
+!SUBENTRY 1 org.eclipse.jdt.core 4 0 2024-12-13 16:10:01.042
+!MESSAGE Failed to init ct.sym for C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\jrt-fs.jar
+!STACK 0
+java.nio.file.AccessDeniedException: C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\ct.sym
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:96)
+	at java.base/sun.nio.fs.WindowsLinkSupport.getRealPath(WindowsLinkSupport.java:257)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:931)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:42)
+	at jdk.zipfs/jdk.nio.zipfs.ZipFileSystemProvider.newFileSystem(ZipFileSystemProvider.java:102)
+	at java.base/java.nio.file.FileSystems.newFileSystem(FileSystems.java:338)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.init(CtSym.java:138)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.<init>(CtSym.java:121)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.lambda$1(JRTUtil.java:136)
+	at java.base/java.util.concurrent.ConcurrentHashMap.compute(ConcurrentHashMap.java:1916)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.getCtSym(JRTUtil.java:133)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrtWithReleaseOption.<init>(ClasspathJrtWithReleaseOption.java:77)
+	at org.eclipse.jdt.internal.core.builder.ClasspathLocation.forJrtSystem(ClasspathLocation.java:146)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.computeClasspathLocations(NameEnvironment.java:313)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.<init>(NameEnvironment.java:62)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:643)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:181)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:292)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:481)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:565)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:603)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:116)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.lambda$0(LaunchConfigurationDelegate.java:406)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2333)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:412)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:122)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:777)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2024-12-13 16:10:06.990
+!MESSAGE JavaBuilder handling CoreException while building: Platformer Game
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to init ct.sym for C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\jrt-fs.jar
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrtWithReleaseOption.<init>(ClasspathJrtWithReleaseOption.java:79)
+	at org.eclipse.jdt.internal.core.builder.ClasspathLocation.forJrtSystem(ClasspathLocation.java:146)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.computeClasspathLocations(NameEnvironment.java:313)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.<init>(NameEnvironment.java:62)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:643)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:181)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:385)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:406)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.nio.file.AccessDeniedException: C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\ct.sym
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:96)
+	at java.base/sun.nio.fs.WindowsLinkSupport.getRealPath(WindowsLinkSupport.java:257)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:931)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:42)
+	at jdk.zipfs/jdk.nio.zipfs.ZipFileSystemProvider.newFileSystem(ZipFileSystemProvider.java:102)
+	at java.base/java.nio.file.FileSystems.newFileSystem(FileSystems.java:338)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.init(CtSym.java:138)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.<init>(CtSym.java:121)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.lambda$1(JRTUtil.java:136)
+	at java.base/java.util.concurrent.ConcurrentHashMap.compute(ConcurrentHashMap.java:1916)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.getCtSym(JRTUtil.java:133)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrtWithReleaseOption.<init>(ClasspathJrtWithReleaseOption.java:77)
+	... 17 more
+!SUBENTRY 1 org.eclipse.jdt.core 4 0 2024-12-13 16:10:06.990
+!MESSAGE Failed to init ct.sym for C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\jrt-fs.jar
+!STACK 0
+java.nio.file.AccessDeniedException: C:\Users\joeal\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\lib\ct.sym
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:96)
+	at java.base/sun.nio.fs.WindowsLinkSupport.getRealPath(WindowsLinkSupport.java:257)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:931)
+	at java.base/sun.nio.fs.WindowsPath.toRealPath(WindowsPath.java:42)
+	at jdk.zipfs/jdk.nio.zipfs.ZipFileSystemProvider.newFileSystem(ZipFileSystemProvider.java:102)
+	at java.base/java.nio.file.FileSystems.newFileSystem(FileSystems.java:338)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.init(CtSym.java:138)
+	at org.eclipse.jdt.internal.compiler.util.CtSym.<init>(CtSym.java:121)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.lambda$1(JRTUtil.java:136)
+	at java.base/java.util.concurrent.ConcurrentHashMap.compute(ConcurrentHashMap.java:1916)
+	at org.eclipse.jdt.internal.compiler.util.JRTUtil.getCtSym(JRTUtil.java:133)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrtWithReleaseOption.<init>(ClasspathJrtWithReleaseOption.java:77)
+	at org.eclipse.jdt.internal.core.builder.ClasspathLocation.forJrtSystem(ClasspathLocation.java:146)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.computeClasspathLocations(NameEnvironment.java:313)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.<init>(NameEnvironment.java:62)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.initializeBuilder(JavaBuilder.java:643)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:181)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:846)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:229)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:330)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:333)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:385)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:406)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2025-01-15 12:25:21.034 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2025-01-15 12:25:37.746
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2025-01-15 12:25:37.746
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6a04d2a4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@35a9e665,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-01-15 12:25:44.460
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\alexa'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
